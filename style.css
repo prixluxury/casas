@@ -1,45 +1,277 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { background-color: #0f1113; color: white; font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+/* RESETEO Y GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-.company-logo { width: 250px; margin: 20px 0; text-align: center; }
-.company-logo img { width: 100%; height: auto; }
+body {
+    background-color: #0f1113;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
 
-.container { width: 98%; max-width: 1650px; background-color: #1a1d21; border-radius: 15px; padding: 30px; border: 1px solid #2c2f33; box-shadow: 0 10px 30px rgba(0,0,0,0.5); margin: 0 auto; }
+/* LOGO: Tamaño controlado */
+.company-logo {
+    width: 250px; 
+    margin: 20px 0;
+    text-align: center;
+}
 
-header { margin-bottom: 30px; text-align: center; }
-header h1 { font-size: 1.5rem; text-transform: uppercase; letter-spacing: 1px; color: #d4af37; }
-.gold-notice { color: #d4af37; font-weight: bold; border-left: 3px solid #d4af37; padding-left: 10px; margin-top: 10px; font-size: 0.85rem; text-align: left; }
+.company-logo img {
+    width: 100%;
+    height: auto;
+}
 
-.grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-top: 30px; }
+/* CONTENEDOR PRINCIPAL */
+.container {
+    width: 98%;
+    max-width: 1650px; 
+    background-color: #1a1d21;
+    border-radius: 15px;
+    padding: 30px;
+    border: 1px solid #2c2f33;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin: 0 auto;
+}
 
-/* Tarjetas */
-.card { perspective: 1000px; height: 400px; cursor: pointer; background-color: transparent; }
-.card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); transform-style: preserve-3d; }
-.card.is-flipped .card-inner { transform: rotateY(180deg); }
+header {
+    margin-bottom: 30px;
+}
 
-.card-front, .card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: 12px; overflow: hidden; background-color: #23272a; border: 1px solid #333; display: flex; flex-direction: column; }
-.card-back { transform: rotateY(180deg); padding: 20px; justify-content: space-between; align-items: center; }
+header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
-.card:hover .card-front, .card.is-flipped:hover .card-back { border: 1px solid #ff4757; box-shadow: 0 0 15px rgba(255, 71, 87, 0.4); }
+.gold-notice {
+    color: #d4af37;
+    font-weight: bold;
+    border-left: 3px solid #d4af37;
+    padding-left: 10px;
+    margin-top: 10px;
+    font-size: 0.85rem;
+}
 
-.image-placeholder { width: 100%; height: 180px; }
-.image-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+/* GRID: 5 columnas exactas */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 20px;
+    margin-top: 30px;
+}
 
-.info { padding: 15px; flex-grow: 1; display: flex; flex-direction: column; text-align: left; }
-.price { color: #2ecc71; font-size: 1.3rem; font-weight: bold; margin: 5px 0; }
-.tag { background: rgba(46, 204, 113, 0.1); color: #2ecc71; padding: 3px 8px; font-size: 0.7rem; border-radius: 4px; display: inline-block; align-self: flex-start; }
-.tag.sold { background: rgba(255, 71, 87, 0.1); color: #ff4757; }
+/* TARJETAS GIRATORIAS */
+.card {
+    background-color: transparent;
+    perspective: 1000px;
+    height: 400px; 
+    cursor: pointer;
+}
 
-/* Modales y Notificaciones */
-.modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); align-items: center; justify-content: center; }
-.notification-box { background: #1a1d21; padding: 40px 30px; max-width: 400px; text-align: center; position: relative; border-radius: 10px; border: 1px solid #d4af37; }
-.agent-list { list-style: none !important; padding: 0 !important; margin: 20px 0 35px 0; }
-.agent-list li { margin-bottom: 12px; color: white; font-size: 0.95rem; }
-.small-notice { font-size: 0.75rem !important; color: #d4af37 !important; margin-bottom: 25px; display: block; }
-.btn-buy-centered { background-color: #d4af37; color: #1a1d21; border: none; border-radius: 6px; padding: 12px 0; font-weight: bold; width: 100%; cursor: pointer; transition: 0.3s; }
-.close { position: absolute; top: 10px; right: 15px; color: #72767d; font-size: 24px; cursor: pointer; }
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
 
-/* Responsive */
+.card.is-flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Evita parpadeos en la primera tarjeta */
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #23272a;
+    border: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Efecto hover */
+.card:hover .card-front, 
+.card.is-flipped:hover .card-back {
+    border: 1px solid #ff4757;
+    box-shadow: 0 0 15px rgba(255, 71, 87, 0.4);
+}
+
+/* DISEÑO FRONTAL */
+.image-placeholder {
+    width: 100%;
+    height: 180px;
+}
+
+.image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.info h3 {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.price {
+    color: #2ecc71;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.tag {
+    background: rgba(46, 204, 113, 0.1);
+    color: #2ecc71;
+    padding: 3px 8px;
+    font-size: 0.7rem;
+    border-radius: 4px;
+    display: inline-block;
+    align-self: flex-start;
+}
+
+.tag.sold {
+    background: rgba(255, 71, 87, 0.1);
+    color: #ff4757;
+}
+
+.details {
+    color: #72767d;
+    font-size: 0.75rem;
+    margin-top: auto;
+}
+
+/* DISEÑO TRASERO REFORZADO (EL PARCHE) */
+.card-back {
+    transform: rotateY(180deg);
+    padding: 20px;
+    justify-content: space-around; /* Mejora la distribución vertical */
+    align-items: center;
+    text-align: center;
+}
+
+.back-title {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: white;
+}
+
+.gps-preview {
+    width: 100%;
+    height: 140px; /* Tamaño controlado para que no se estire */
+    border-radius: 8px;
+    overflow: hidden; /* Corta cualquier exceso de imagen */
+    border: 1px solid #444;
+}
+
+.gps-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la foto sin deformarla */
+    cursor: zoom-in;
+}
+
+/* BOTÓN DORADO */
+.btn-buy-centered {
+    background-color: #d4af37;
+    color: #1a1d21;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 0;
+    font-weight: bold;
+    width: 100%;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+    font-size: 0.8rem;
+}
+
+.btn-buy-centered:hover {
+    background-color: #f1c40f;
+    transform: scale(1.02);
+}
+
+/* MODALES */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 80%;
+    border: 2px solid #d4af37;
+    border-radius: 10px;
+}
+
+.notification-box {
+    background: #1a1d21;
+    padding: 40px 30px 30px 30px;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    border-radius: 10px;
+    border: 1px solid #d4af37;
+}
+
+.notification-box h2 {
+    color: #d4af37;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.close {
+    position: absolute;
+    top: 10px; right: 15px;
+    color: #72767d;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close:hover { color: #ff4757; }
+
+.agent-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 20px 0 35px 0;
+}
+
+.agent-list li {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.small-notice {
+    font-size: 0.75rem !important;
+    color: #d4af37 !important;
+    margin-bottom: 25px;
+    display: block;
+}
+
+/* RESPONSIVO */
 @media (max-width: 1400px) { .grid { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
