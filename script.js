@@ -49,27 +49,37 @@ function cargarPropiedades() {
     });
 }
 
-// Inicialización y funciones de control
-window.onload = cargarPropiedades;
+// Usar DOMContentLoaded es mejor porque no espera a las imágenes, 
+// solo a que la estructura esté lista para dibujar las tarjetas.
+document.addEventListener('DOMContentLoaded', cargarPropiedades);
 
 function openFullMap(src) {
     const modal = document.getElementById("gps-modal");
-    document.getElementById("full-map-img").src = src;
-    modal.style.display = "flex";
+    const modalImg = document.getElementById("full-map-img");
+    if (modal && modalImg) {
+        modalImg.src = src;
+        modal.style.display = "flex";
+    }
 }
 
 function closeFullMap() {
-    document.getElementById("gps-modal").style.display = "none";
+    const modal = document.getElementById("gps-modal");
+    if (modal) modal.style.display = "none";
 }
 
 function buyHouse() {
-    document.getElementById("notification-modal").style.display = "flex";
+    const modal = document.getElementById("notification-modal");
+    if (modal) modal.style.display = "flex";
 }
 
 function closeNotification() {
-    document.getElementById("notification-modal").style.display = "none";
+    const modal = document.getElementById("notification-modal");
+    if (modal) modal.style.display = "none";
 }
 
 document.addEventListener('keydown', (e) => {
-    if (e.key === "Escape") { closeFullMap(); closeNotification(); }
+    if (e.key === "Escape") { 
+        closeFullMap(); 
+        closeNotification(); 
+    }
 });
