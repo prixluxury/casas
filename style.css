@@ -221,7 +221,10 @@ header h1 {
     display: none;
     position: fixed;
     z-index: 9999;
-    left: 0; top: 0; width: 100%; height: 100%;
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%;
     background-color: rgba(0,0,0,0.9);
     align-items: center;
     justify-content: center;
@@ -236,11 +239,12 @@ header h1 {
 
 .notification-box {
     background: #1a1d21;
-    padding: 30px;
+    padding: 40px 30px 30px 30px;
     max-width: 400px;
     text-align: center;
     position: relative;
     border-radius: 10px;
+    border: 1px solid #d4af37;
 }
 
 .notification-box h2 {
@@ -258,10 +262,39 @@ header h1 {
 
 .close {
     position: absolute;
-    top: 15px; right: 20px;
-    color: white;
-    font-size: 30px;
+    top: 10px; 
+    right: 15px;
+    color: #72767d;
+    font-size: 24px;
+    line-height: 1;
     cursor: pointer;
+    transition: 0.2s;
+}
+
+.close:hover {
+    color: #ff4757; /* Se pone roja al pasar el mouse, como tus efectos de tarjeta */
+}
+
+/* LISTA DE AGENTES (SIN PUNTOS) */
+.agent-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 20px 0 35px 0; /* 35px abajo para separar del texto pequeño */
+}
+
+.agent-list li {
+    margin-bottom: 12px;
+    color: white;
+    font-size: 0.95rem;
+}
+
+/* TEXTO PEQUEÑO REMARCADO */
+.small-notice {
+    font-size: 0.75rem !important;
+    color: #d4af37 !important;
+    margin-bottom: 25px;
+    line-height: 1.4;
+    display: block;
 }
 
 /* RESPONSIVO: Para celulares y tablets */
