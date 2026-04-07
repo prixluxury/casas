@@ -3,54 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de propiedades</title>
-    <link rel="icon" type="image/png" href="img/ui/icono.png">
+    <title>Crown & Pillar Agency | Luxury Real Estate</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="company-logo">
-        <img src="img/ui/logo.png" alt="Logo Empresa">
-    </div>
-
-    <div class="container">
-        <header>
-            <h1>CROWN & PILLAR</h1>
-            <p>PROPIEDADES DISPONIBLES:</p>
-            <p class="gold-notice">Esta página se mantiene actualizada a medida que haya más propiedades disponibles, te recomendamos estar atento.</p>
-        </header>
-
-        <div class="grid" id="property-grid">
-            </div>
-    </div>
-
-    <div id="gps-modal" class="modal" onclick="closeFullMap()">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="full-map-img">
-    </div>
-
-    <div id="notification-modal" class="modal" onclick="closeNotification()">
-        <div class="notification-box" onclick="event.stopPropagation()">
-            <span class="close" onclick="closeNotification()">&times;</span>
-            <h2>¡EXCELENTE ELECCIÓN!</h2>
-            <p>Para continuar el proceso, contacta a algún agente inmobiliario:</p>
-            <ul class="agent-list">
-                <li><strong>Liam Cooper | 2059898427</strong></li>
-                <li><strong>Xiomara Morell | 5203884988</strong></li>
-                <li><strong>Eduardo Simiales | 2058296904</strong></li>
+    <header class="main-header" id="navbar">
+        <nav class="pill-nav">
+            <ul class="nav-links">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#catalogo">CATÁLOGO</a></li>
             </ul>
-            <p class="small-notice"><strong>No te olvides de mencionar el nombre + número de la propiedad deseada.</strong></p>
-            <button class="btn-buy-centered" onclick="closeNotification()">ACEPTAR</button>
+        </nav>
+    </header>
+
+    <section class="hero-fullscreen">
+        <div class="hero-content">
+            <img src="img/ui/logo.png" alt="Logo" class="hero-logo-large">
+            <p class="hero-signature">a Croydon Company</p>
+            <a href="#catalogo" class="btn-scroll-down">Explorar Catálogo</a>
+        </div>
+    </section>
+
+    <main class="container reveal" id="catalogo">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <h1 style="color: #d4af37; font-size: 2.2rem; text-transform: uppercase; letter-spacing: 3px;">Propiedades Disponibles</h1>
+            <p style="color: rgba(255,255,255,0.5); font-size: 0.9rem; margin-top: 10px;">Agencia de Alto Standing • 2026</p>
+        </div>
+        <div id="property-grid" class="grid-premium"></div>
+    </main>
+
+    <div id="notificationModal" class="modal">
+        <div class="notification-box">
+            <span class="close" onclick="closeNotification()">&times;</span>
+            <h2 style="color:#d4af37; font-size: 1.5rem; letter-spacing: 2px;">¡EXCELENTE ELECCIÓN!</h2>
+            <p style="margin-top:10px; font-size: 0.85rem; color: rgba(255,255,255,0.6);">Contacta a un agente inmobiliario para continuar el proceso:</p>
+            <ul class="agent-list-premium">
+                <li><strong>Liam Cooper</strong> | 2059898427</li>
+                <li><strong>Xiomara Morell</strong> | 5203884988</li>
+                <li><strong>Eduardo Simiales</strong> | 2058296904</li>
+            </ul>
+            <button class="btn-buy-centered" onclick="closeNotification()">ENTENDIDO</button>
         </div>
     </div>
-<footer class="footer-premium">
-    <div class="footer-line"></div>
-    <p class="brand-title">2026 CREADA POR DANZERD PARA LA COMUNIDAD</p>
-    
-    <div class="legal-container">
-        <p>Crown & Pillar Agency es una marca ficticia creada exclusivamente para fines de entretenimiento y simulación dentro del entorno virtual de <strong>FiveM</strong>.</p>
+
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="this.parentElement.style.display='none'">&times;</span>
+        <img id="img01" style="max-width: 85%; border-radius: 15px; border: 1px solid #d4af37;">
     </div>
-</footer>
+
+    <footer class="footer-premium reveal">
+        <p class="brand-title">2026 HECHO POR DANZERD PARA LA COMUNIDAD</p>
+        <div class="legal-container">
+            <p>Crown & Pillar Agency es una marca ficticia para fines de entretenimiento y simulación dentro del entorno virtual de FiveM.</p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
