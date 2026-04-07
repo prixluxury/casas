@@ -3,16 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crown & Pillar Agency | Luxury Real Estate</title>
+    <meta name="description" content="Crown & Pillar Agency – Propiedades de lujo disponibles en FiveM. Catálogo 2026.">
+    <meta name="theme-color" content="#030303">
+    <title>Crown & Pillar Agency</title>
+    <link rel="icon" type="image/png" href="img/ui/icono.webp">
+
+    <!-- ✅ FIX #1: Preconnect para reducir latencia de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- ✅ FIX #1: Carga de fuente no bloqueante (antes bloqueaba el render) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"></noscript>
+
+    <!-- ✅ FIX #2: Preload del logo (LCP) para que cargue con máxima prioridad -->
+    <link rel="preload" as="image" href="img/ui/logo.webp">
+
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header class="main-header" id="navbar">
         <nav class="pill-nav">
             <ul class="nav-links">
-                <li><a href="#">HOME</a></li>
+                <li><a href="#">INICIO</a></li>
                 <li><a href="#catalogo">CATÁLOGO</a></li>
             </ul>
         </nav>
@@ -20,7 +34,14 @@
 
     <section class="hero-fullscreen">
         <div class="hero-content">
-            <img src="img/ui/logo.png" alt="Logo" class="hero-logo-large">
+            <!-- ✅ FIX #2: fetchpriority="high" y decoding="sync" para el LCP -->
+            <img src="img/ui/logo.webp"
+                 alt="Crown & Pillar Agency Logo"
+                 class="hero-logo-large"
+                 fetchpriority="high"
+                 decoding="sync"
+                 width="400"
+                 height="200">
             <p class="hero-signature">a Croydon Company</p>
             <a href="#catalogo" class="btn-scroll-down">Explorar Catálogo</a>
         </div>
@@ -29,7 +50,7 @@
     <main class="container reveal" id="catalogo">
         <div style="text-align: center; margin-bottom: 60px;">
             <h1 style="color: #d4af37; font-size: 2.2rem; text-transform: uppercase; letter-spacing: 3px;">Propiedades Disponibles</h1>
-            <p style="color: rgba(255,255,255,0.5); font-size: 0.9rem; margin-top: 10px;">Agencia de Alto Standing • 2026</p>
+            <p style="color: rgba(255,255,255,0.5); font-size: 0.9rem; margin-top: 10px;">Nuestra pagina se mantiene actualizada a medida que tengamos mas propiedades disponibles, te recomendamos estar atento/a a cualquier novedad</p>
         </div>
         <div id="property-grid" class="grid-premium"></div>
     </main>
@@ -50,13 +71,13 @@
 
     <div id="imageModal" class="modal">
         <span class="close" onclick="this.parentElement.style.display='none'">&times;</span>
-        <img id="img01" style="max-width: 85%; border-radius: 15px; border: 1px solid #d4af37;">
+        <img id="img01" style="max-width: 85%; border-radius: 15px; border: 1px solid #d4af37;" alt="Mapa GPS de la propiedad">
     </div>
 
     <footer class="footer-premium reveal">
         <p class="brand-title">2026 HECHO POR DANZERD PARA LA COMUNIDAD</p>
         <div class="legal-container">
-            <p>Crown & Pillar Agency es una marca ficticia para fines de entretenimiento y simulación dentro del entorno virtual de FiveM.</p>
+            <p>Crown & Pillar Agency es una marca ficticia para fines de entretenimiento y simulación dentro del entorno de FiveM.</p>
         </div>
     </footer>
 
